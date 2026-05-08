@@ -16,7 +16,7 @@ export const sortByPriority = (
       if (typeDiff !== 0) {
         return typeDiff;
       }
-
+      
       return (
         new Date(b.Timestamp) -
         new Date(a.Timestamp)
