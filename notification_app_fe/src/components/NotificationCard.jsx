@@ -7,7 +7,9 @@ import {
   Box,
 } from "@mui/material";
 
+
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
+
 
 const NotificationCard = ({
   item,
@@ -19,16 +21,20 @@ const NotificationCard = ({
       case "Placement":
         return "success";
 
+
       case "Result":
         return "primary";
 
+
       case "Event":
         return "warning";
+
 
       default:
         return "default";
     }
   };
+
 
   return (
     <Card
@@ -40,14 +46,18 @@ const NotificationCard = ({
         overflow: "hidden",
         position: "relative",
 
+
         opacity: isRead ? 0.75 : 1,
+
 
         transition:
           "all 0.3s ease-in-out",
 
+
         boxShadow: isRead
           ? "0px 2px 8px rgba(0,0,0,0.08)"
           : "0px 6px 18px rgba(0,0,0,0.12)",
+
 
         borderLeft: `6px solid ${
           item.Type === "Placement"
@@ -56,6 +66,7 @@ const NotificationCard = ({
             ? "#1976d2"
             : "#ed6c02"
         }`,
+
 
         "&:hover": {
           transform: "translateY(-4px)",
@@ -82,6 +93,7 @@ const NotificationCard = ({
                 fontSize="small"
               />
 
+
               <Typography
                 variant="h6"
                 sx={{
@@ -93,6 +105,7 @@ const NotificationCard = ({
                 {item.Message}
               </Typography>
             </Stack>
+
 
             <Typography
               variant="body2"
@@ -107,6 +120,7 @@ const NotificationCard = ({
             </Typography>
           </Box>
 
+
           <Chip
             label={item.Type}
             color={getColor(item.Type)}
@@ -116,6 +130,7 @@ const NotificationCard = ({
             }}
           />
         </Stack>
+
 
         {!isRead && (
           <Box
@@ -147,4 +162,8 @@ const NotificationCard = ({
   );
 };
 
+
 export default NotificationCard;
+
+
+

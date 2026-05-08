@@ -1,5 +1,6 @@
 // src/data/mockNotifications.js
 
+
 const mockNotifications = [
   {
     ID: 1,
@@ -9,6 +10,7 @@ const mockNotifications = [
     Timestamp: "2026-05-08 10:30 AM",
   },
 
+
   {
     ID: 2,
     Type: "Result",
@@ -16,6 +18,7 @@ const mockNotifications = [
       "Semester 6 results are now published",
     Timestamp: "2026-05-08 09:00 AM",
   },
+
 
   {
     ID: 3,
@@ -26,5 +29,12 @@ const mockNotifications = [
   },
 ];
 
+
 export default mockNotifications;
+
+
+
+
+
+
 

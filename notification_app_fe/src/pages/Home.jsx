@@ -3,6 +3,7 @@ import {
   useState,
 } from "react";
 
+
 import {
   Container,
   Typography,
@@ -14,42 +15,56 @@ import {
   Stack,
 } from "@mui/material";
 
+
 import { fetchNotifications } from "../api/notifications";
+
 
 import { sortByPriority } from "../utils/priorityHelper";
 
+
 import NotificationCard from "../components/NotificationCard";
+
 
 const Home = () => {
   const [notifications, setNotifications] =
     useState([]);
 
+
   const [loading, setLoading] =
     useState(true);
+
 
   const [filter, setFilter] =
     useState("All");
 
+
   const [readItems, setReadItems] =
     useState([]);
+
 
   useEffect(() => {
     loadNotifications();
   }, []);
 
+
   const loadNotifications = async () => {
     setLoading(true);
+
 
     const data =
       await fetchNotifications();
 
+
     const sorted =
       sortByPriority(data);
 
+
     setNotifications(sorted);
+
 
     setLoading(false);
   };
+
 
   const handleRead = (id) => {
     setReadItems((prev) => [
@@ -58,6 +73,7 @@ const Home = () => {
     ]);
   };
 
+
   const filteredNotifications =
     filter === "All"
       ? notifications
@@ -65,6 +81,7 @@ const Home = () => {
           (item) =>
             item.Type === filter
         );
+
 
   return (
     <Container sx={{ mt: 4 }}>
@@ -78,10 +95,12 @@ const Home = () => {
           Priority Inbox
         </Typography>
 
+
         <FormControl sx={{ minWidth: 180 }}>
           <InputLabel>
             Filter
           </InputLabel>
+
 
           <Select
             value={filter}
@@ -96,13 +115,16 @@ const Home = () => {
               All
             </MenuItem>
 
+
             <MenuItem value="Placement">
               Placement
             </MenuItem>
 
+
             <MenuItem value="Result">
               Result
             </MenuItem>
+
 
             <MenuItem value="Event">
               Event
@@ -110,6 +132,7 @@ const Home = () => {
           </Select>
         </FormControl>
       </Stack>
+
 
       {loading ? (
         <CircularProgress />
@@ -131,4 +154,8 @@ const Home = () => {
   );
 };
 
+
 export default Home;
+
+
+
